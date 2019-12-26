@@ -1,0 +1,16 @@
+(^|/)\#[^/]*$
+\.class$
+\.orig$
+^[^/]*/\.gradle/
+^[^/]*/build/
+^[^/]*/target/
+^\.git/
+^\.gradle/
+^\.idea/dbnavigator\.xml$
+^\.idea/uiDesigner\.xml$
+^\.idea/workspace\.xml$
+^build/
+^classes/
+^target/
+gradle\.properties$
+~$
