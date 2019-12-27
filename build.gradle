@@ -37,7 +37,7 @@ dependencies {
   implementation files("/usr/lib/jvm/openjfx/rt/lib/ext/jfxrt.jar")
 
   testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
-  testRuntime "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+  testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
 }
 
 mainClassName = "com.example.demo.app.MyApp"
@@ -45,11 +45,11 @@ mainClassName = "com.example.demo.app.MyApp"
 jar {
   manifest {
     attributes(
-        "Class-Path": configurations.compile.collect { it.getName() }.join(" "),
+        "Class-Path": configurations.compileClasspath.collect { it.getName() }.join(" "),
         "Main-Class": mainClassName
     )
   }
-  from(configurations.compile.collect { entry -> zipTree(entry) }) {
+  from(configurations.compileClasspath.collect { entry -> zipTree(entry) }) {
     exclude "META-INF/MANIFEST.MF"
     exclude "META-INF/*.SF"
     exclude "META-INF/*.DSA"
